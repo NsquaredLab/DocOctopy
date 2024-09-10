@@ -314,11 +314,11 @@ Afterward, we select one task to work with.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">task_one_data</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;1&#39;: EMGData; Sampling frequency: 2044 Hz; (0) Raw (320, 20440), &#39;2&#39;: EMGData; Sampling frequency: 2044 Hz; (0) Raw (320, 20440)}
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;1&#39;: EMGData; Sampling frequency: 2044 Hz; (0) Input (320, 20440), &#39;2&#39;: EMGData; Sampling frequency: 2044 Hz; (0) Input (320, 20440)}
 --
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 --
 </pre></div>
 </div>
@@ -361,7 +361,7 @@ The deep learning models was thus trained with 2 representations of the data, on
 <img src="../_images/sphx_glr_2_complex_filtering_001.png" srcset="../_images/sphx_glr_2_complex_filtering_001.png" alt="2 complex filtering" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>--
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 
 Filter(s):
 (1 | 1) (Output) Bandpass 50 (320, 20440)
@@ -416,7 +416,7 @@ flag to True for the filters that should be kept in the dataset object.</p>
 <img src="../_images/sphx_glr_2_complex_filtering_002.png" srcset="../_images/sphx_glr_2_complex_filtering_002.png" alt="2 complex filtering" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>--
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 
 Filter(s):
 (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -447,7 +447,7 @@ Filter(s):
 <img src="../_images/sphx_glr_2_complex_filtering_003.png" srcset="../_images/sphx_glr_2_complex_filtering_003.png" alt="2 complex filtering" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>--
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 
 Filter(s):
 (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -477,7 +477,7 @@ Filter(s):
 <img src="../_images/sphx_glr_2_complex_filtering_004.png" srcset="../_images/sphx_glr_2_complex_filtering_004.png" alt="2 complex filtering" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>--
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 
 Filter(s):
 (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -558,13 +558,13 @@ Filter(s):
 <img src="../_images/sphx_glr_2_complex_filtering_006.png" srcset="../_images/sphx_glr_2_complex_filtering_006.png" alt="2 complex filtering" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>--
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 --
 Recomputing representation &quot;Bandpass 50&quot;
 --
 EMGData
 Sampling frequency: 2044 Hz
-(0) Raw (320, 20440)
+(0) Input (320, 20440)
 
 Filter(s):
 (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -575,7 +575,7 @@ Filter(s):
 --
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.270 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.081 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  1314 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-2-complex-filtering-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">

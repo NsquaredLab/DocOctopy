@@ -52,7 +52,7 @@ The Data object is the main object in the package and is used to store the data 
 
  .. code-block:: none
 
-    {'1': EMGData; Sampling frequency: 2044 Hz; (0) Raw (320, 20440), '2': EMGData; Sampling frequency: 2044 Hz; (0) Raw (320, 20440)}
+    {'1': EMGData; Sampling frequency: 2044 Hz; (0) Input (320, 20440), '2': EMGData; Sampling frequency: 2044 Hz; (0) Input (320, 20440)}
 
 
 
@@ -83,7 +83,7 @@ In the following we will only look at task one to explain the filtering function
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
     --
 
 
@@ -339,7 +339,7 @@ In case you do not want to index using the filter sequence name, you can retriev
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
 
     Filter(s):
     (1 | 1) (Output) Lowpass (320, 20440)
@@ -352,7 +352,7 @@ In case you do not want to index using the filter sequence name, you can retriev
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.400 seconds)
+   **Total running time of the script:** (0 minutes 4.886 seconds)
 
 **Estimated memory usage:**  554 MB
 

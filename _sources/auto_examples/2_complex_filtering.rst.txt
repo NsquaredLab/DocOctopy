@@ -60,11 +60,11 @@ Afterward, we select one task to work with.
 
  .. code-block:: none
 
-    {'1': EMGData; Sampling frequency: 2044 Hz; (0) Raw (320, 20440), '2': EMGData; Sampling frequency: 2044 Hz; (0) Raw (320, 20440)}
+    {'1': EMGData; Sampling frequency: 2044 Hz; (0) Input (320, 20440), '2': EMGData; Sampling frequency: 2044 Hz; (0) Input (320, 20440)}
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
     --
 
 
@@ -131,7 +131,7 @@ We can achieve this by applying two filters to the data using the apply_filters 
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
 
     Filter(s):
     (1 | 1) (Output) Bandpass 50 (320, 20440)
@@ -220,7 +220,7 @@ Apply the filters for steps 1 and 2
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
 
     Filter(s):
     (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -271,7 +271,7 @@ Apply the filters for step 3 and 4
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
 
     Filter(s):
     (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -321,7 +321,7 @@ Apply the filters for step 5
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
 
     Filter(s):
     (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -439,13 +439,13 @@ This can be achieved in a more concise way by using the apply_filter_pipeline me
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
     --
     Recomputing representation "Bandpass 50"
     --
     EMGData
     Sampling frequency: 2044 Hz
-    (0) Raw (320, 20440)
+    (0) Input (320, 20440)
 
     Filter(s):
     (1 | 1) ChunkizeDataFilter (317, 320, 192)
@@ -461,7 +461,7 @@ This can be achieved in a more concise way by using the apply_filter_pipeline me
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.270 seconds)
+   **Total running time of the script:** (0 minutes 6.081 seconds)
 
 **Estimated memory usage:**  1314 MB
 
