@@ -46,11 +46,11 @@ In this example we will create a dataset that was used in our real-time paper [1
     from doc_octopy.datasets.supervised import EMGDataset
 
     dataset = EMGDataset(
-        emg_data_path=Path("data\emg.pkl").resolve(),
-        ground_truth_data_path=Path("data\kinematics.pkl").resolve(),
+        emg_data_path=Path("data/emg.pkl").resolve(),
+        ground_truth_data_path=Path("data/kinematics.pkl").resolve(),
         sampling_frequency=2044.0,
         tasks_to_use=["1", "2"],
-        save_path=Path(r"data\dataset.zarr").resolve(),
+        save_path=Path(r"data/dataset.zarr").resolve(),
         emg_filter_pipeline_after_chunking=[
             [
                 SOSFrequencyFilter(
@@ -97,18 +97,14 @@ In this example we will create a dataset that was used in our real-time paper [1
 
 
 
+
+
 .. rst-class:: sphx-glr-script-out
 
-.. code-block:: pytb
+ .. code-block:: none
 
-    Traceback (most recent call last):
-      File "/home/runner/work/DocOctopy/DocOctopy/examples/3_create_dataset.py", line 72, in <module>
-        dataset.create_dataset()
-      File "/home/runner/work/DocOctopy/DocOctopy/doc_octopy/datasets/supervised.py", line 187, in create_dataset
-        with self.emg_data_path.open("rb") as f:
-      File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/pathlib.py", line 1119, in open
-        return self._accessor.open(self, mode, buffering, encoding, errors,
-    FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/DocOctopy/DocOctopy/examples/data\\emg.pkl'
+    Filtering and splitting data:   0%|          | 0/2 [00:00<?, ?it/s]    Filtering and splitting data:  50%|█████     | 1/2 [00:02<00:02,  2.17s/it]    Filtering and splitting data: 100%|██████████| 2/2 [00:05<00:00,  2.57s/it]    Filtering and splitting data: 100%|██████████| 2/2 [00:05<00:00,  2.51s/it]
+    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:   0%|          | 0/317 [00:00<?, ?it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:   5%|▌         | 16/317 [00:00<00:01, 159.06it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  11%|█         | 34/317 [00:00<00:01, 167.91it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  16%|█▋        | 52/317 [00:00<00:01, 170.20it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  22%|██▏       | 70/317 [00:00<00:01, 172.30it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  28%|██▊       | 88/317 [00:00<00:01, 173.46it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  33%|███▎      | 106/317 [00:00<00:01, 174.38it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  39%|███▉      | 124/317 [00:00<00:01, 170.25it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  45%|████▍     | 142/317 [00:00<00:01, 168.83it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  50%|█████     | 159/317 [00:00<00:00, 167.42it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  56%|█████▌    | 176/317 [00:01<00:00, 161.01it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  61%|██████    | 193/317 [00:01<00:00, 162.16it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  66%|██████▌   | 210/317 [00:01<00:00, 163.50it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  72%|███████▏  | 227/317 [00:01<00:00, 164.25it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  77%|███████▋  | 244/317 [00:01<00:00, 164.48it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  82%|████████▏ | 261/317 [00:02<00:01, 51.96it/s]     Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  88%|████████▊ | 279/317 [00:02<00:00, 66.38it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  94%|█████████▎| 297/317 [00:02<00:00, 82.07it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  99%|█████████▊| 313/317 [00:02<00:00, 94.73it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]: 100%|██████████| 317/317 [00:02<00:00, 119.77it/s]
 
 
 
@@ -126,20 +122,35 @@ Default dataset are also available. Here is an example of how to use the EMBCDat
     from doc_octopy.datasets.defaults import EMBCDataset
 
     dataset = EMBCDataset(
-        emg_data_path=Path("data\emg.pkl").resolve(),
-        ground_truth_data_path=Path("data\kinematics.pkl").resolve(),
-        save_path=Path(r"data\dataset.zarr").resolve(),
+        emg_data_path=Path("data/emg.pkl").resolve(),
+        ground_truth_data_path=Path("data/kinematics.pkl").resolve(),
+        save_path=Path(r"data/dataset.zarr").resolve(),
         tasks_to_use=["1", "2"],
     )
 
     dataset.create_dataset()
 
 
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Filtering and splitting data:   0%|          | 0/2 [00:00<?, ?it/s]    Filtering and splitting data:  50%|█████     | 1/2 [00:01<00:01,  1.47s/it]    Filtering and splitting data: 100%|██████████| 2/2 [00:02<00:00,  1.45s/it]    Filtering and splitting data: 100%|██████████| 2/2 [00:02<00:00,  1.45s/it]
+    Augmenting with [GaussianNoise (GaussianNoise)]:   0%|          | 0/317 [00:00<?, ?it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:   0%|          | 1/317 [00:01<08:03,  1.53s/it]    Augmenting with [GaussianNoise (GaussianNoise)]:   5%|▌         | 17/317 [00:01<00:21, 14.24it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  10%|█         | 33/317 [00:01<00:09, 30.07it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  15%|█▌        | 49/317 [00:01<00:05, 47.48it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  20%|██        | 64/317 [00:01<00:03, 63.95it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  25%|██▌       | 80/317 [00:02<00:02, 81.78it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  30%|███       | 96/317 [00:02<00:02, 98.16it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  35%|███▌      | 112/317 [00:02<00:01, 112.35it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  40%|████      | 128/317 [00:02<00:01, 123.57it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  45%|████▌     | 144/317 [00:02<00:01, 132.88it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  50%|█████     | 160/317 [00:02<00:01, 139.98it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  56%|█████▌    | 176/317 [00:02<00:00, 145.41it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  61%|██████    | 192/317 [00:02<00:00, 149.36it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  66%|██████▌   | 208/317 [00:02<00:00, 151.64it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  71%|███████   | 224/317 [00:02<00:00, 150.58it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  76%|███████▌  | 240/317 [00:03<00:00, 151.30it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  81%|████████  | 256/317 [00:03<00:00, 152.06it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  86%|████████▌ | 272/317 [00:03<00:00, 152.46it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  91%|█████████ | 288/317 [00:03<00:00, 152.38it/s]    Augmenting with [GaussianNoise (GaussianNoise)]:  96%|█████████▌| 304/317 [00:03<00:00, 152.55it/s]    Augmenting with [GaussianNoise (GaussianNoise)]: 100%|██████████| 317/317 [00:03<00:00, 89.16it/s] 
+    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:   0%|          | 0/317 [00:00<?, ?it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:   6%|▌         | 18/317 [00:00<00:01, 176.97it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  12%|█▏        | 39/317 [00:00<00:01, 191.23it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  19%|█▉        | 60/317 [00:00<00:01, 195.35it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  25%|██▌       | 80/317 [00:00<00:01, 196.65it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  32%|███▏      | 101/317 [00:00<00:01, 197.90it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  38%|███▊      | 121/317 [00:00<00:01, 194.82it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  44%|████▍     | 141/317 [00:00<00:00, 192.68it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  51%|█████     | 161/317 [00:00<00:00, 187.79it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  57%|█████▋    | 180/317 [00:00<00:00, 187.95it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  63%|██████▎   | 199/317 [00:01<00:00, 188.28it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  69%|██████▉   | 218/317 [00:01<00:00, 182.93it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  75%|███████▍  | 237/317 [00:01<00:00, 184.74it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  81%|████████  | 256/317 [00:01<00:00, 185.82it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  87%|████████▋ | 275/317 [00:01<00:00, 186.35it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  93%|█████████▎| 294/317 [00:01<00:00, 187.01it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]:  99%|█████████▊| 313/317 [00:01<00:00, 187.45it/s]    Augmenting with [MagnitudeWarping (MagnitudeWarping)]: 100%|██████████| 317/317 [00:01<00:00, 188.77it/s]
+    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:   0%|          | 0/317 [00:00<?, ?it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:   4%|▍         | 13/317 [00:00<00:02, 127.87it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:   9%|▉         | 29/317 [00:00<00:01, 145.36it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  14%|█▍        | 45/317 [00:00<00:01, 148.96it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  19%|█▉        | 61/317 [00:00<00:01, 152.46it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  24%|██▍       | 77/317 [00:00<00:01, 153.04it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  29%|██▉       | 93/317 [00:00<00:01, 151.42it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  34%|███▍      | 109/317 [00:00<00:01, 151.99it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  39%|███▉      | 125/317 [00:00<00:01, 150.94it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  44%|████▍     | 141/317 [00:00<00:01, 150.53it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  50%|████▉     | 157/317 [00:01<00:01, 150.06it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  55%|█████▍    | 173/317 [00:01<00:00, 149.91it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  59%|█████▉    | 188/317 [00:01<00:00, 149.77it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  64%|██████▍   | 203/317 [00:01<00:00, 149.46it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  69%|██████▉   | 218/317 [00:01<00:00, 149.48it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  74%|███████▎  | 233/317 [00:01<00:00, 144.71it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  78%|███████▊  | 248/317 [00:01<00:00, 144.79it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  83%|████████▎ | 263/317 [00:01<00:00, 146.00it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  88%|████████▊ | 278/317 [00:01<00:00, 146.69it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  92%|█████████▏| 293/317 [00:01<00:00, 147.38it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]:  97%|█████████▋| 308/317 [00:02<00:00, 147.82it/s]    Augmenting with [WaveletDecomposition (WaveletDecomposition)]: 100%|██████████| 317/317 [00:02<00:00, 148.54it/s]
+
+
+
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.196 seconds)
+   **Total running time of the script:** (0 minutes 20.843 seconds)
 
-**Estimated memory usage:**  1369 MB
+**Estimated memory usage:**  946 MB
 
 
 .. _sphx_glr_download_auto_examples_3_create_dataset.py:

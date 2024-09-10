@@ -42,7 +42,7 @@ Two parameters are required:
     from pathlib import Path
     from doc_octopy.datasets.loader import EMGDatasetLoader
 
-    loader = EMGDatasetLoader(Path("data/dataset.zarr").resolve(), dataloader_parameters={"batch_size": 16, "drop_last": True})
+    loader = EMGDatasetLoader(Path("data\dataset.zarr").resolve(), dataloader_parameters={"batch_size": 16, "drop_last": True})
 
 
 
@@ -143,9 +143,9 @@ Training the model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.710 seconds)
+   **Total running time of the script:** (0 minutes 0.702 seconds)
 
-**Estimated memory usage:**  1369 MB
+**Estimated memory usage:**  1475 MB
 
 
 .. _sphx_glr_download_auto_examples_4_train_model.py:
