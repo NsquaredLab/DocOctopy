@@ -35,13 +35,14 @@ Two parameters are required:
 
 - dataloader_parameters: Parameters for the DataLoader.
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-22
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
+    from pathlib import Path
     from doc_octopy.datasets.loader import EMGDatasetLoader
 
-    loader = EMGDatasetLoader("data/dataset.zarr", dataloader_parameters={"batch_size": 16, "drop_last": True})
+    loader = EMGDatasetLoader(Path("data/dataset.zarr").resolve(), dataloader_parameters={"batch_size": 16, "drop_last": True})
 
 
 
@@ -50,12 +51,12 @@ Two parameters are required:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
 
 Training the model
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-57
+.. GENERATED FROM PYTHON SOURCE LINES 26-58
 
 .. code-block:: Python
 
@@ -98,7 +99,7 @@ Training the model
 .. code-block:: pytb
 
     Traceback (most recent call last):
-      File "/home/runner/work/DocOctopy/DocOctopy/examples/4_train_model.py", line 56, in <module>
+      File "/home/runner/work/DocOctopy/DocOctopy/examples/4_train_model.py", line 57, in <module>
         trainer.fit(model, datamodule=loader)
       File "/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 538, in fit
         call._call_and_handle_interrupt(
@@ -142,7 +143,7 @@ Training the model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.590 seconds)
+   **Total running time of the script:** (0 minutes 0.710 seconds)
 
 **Estimated memory usage:**  1369 MB
 

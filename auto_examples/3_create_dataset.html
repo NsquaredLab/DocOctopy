@@ -310,11 +310,11 @@ to download the full example code.</p>
 <span class="kn">from</span> <span class="nn">doc_octopy.datasets.supervised</span> <span class="kn">import</span> <span class="n">EMGDataset</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">EMGDataset</span><span class="p">(</span>
-    <span class="n">emg_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\emg.pkl&quot;</span><span class="p">),</span>
-    <span class="n">ground_truth_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\kinematics.pkl&quot;</span><span class="p">),</span>
+    <span class="n">emg_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\emg.pkl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
+    <span class="n">ground_truth_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\kinematics.pkl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
     <span class="n">sampling_frequency</span><span class="o">=</span><span class="mf">2044.0</span><span class="p">,</span>
     <span class="n">tasks_to_use</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">],</span>
-    <span class="n">save_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;data\dataset.zarr&quot;</span><span class="p">),</span>
+    <span class="n">save_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;data\dataset.zarr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
     <span class="n">emg_filter_pipeline_after_chunking</span><span class="o">=</span><span class="p">[</span>
         <span class="p">[</span>
             <span class="n">SOSFrequencyFilter</span><span class="p">(</span>
@@ -366,7 +366,7 @@ to download the full example code.</p>
 <span class="w">    </span><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">emg_data_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
   File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/pathlib.py&quot;</span>, line <span class="m">1119</span>, in <span class="n">open</span>
 <span class="w">    </span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">buffering</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span>
-<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: &#39;data\\emg.pkl&#39;</span>
+<span class="gr">FileNotFoundError</span>: <span class="n">[Errno 2] No such file or directory: &#39;/home/runner/work/DocOctopy/DocOctopy/examples/data\\emg.pkl&#39;</span>
 </pre></div>
 </div>
 <p>Default dataset are also available. Here is an example of how to use the EMBCDataset used in <a class="footnote-reference brackets" href="#id4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
@@ -379,16 +379,16 @@ to download the full example code.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">doc_octopy.datasets.defaults</span> <span class="kn">import</span> <span class="n">EMBCDataset</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">EMBCDataset</span><span class="p">(</span>
-    <span class="n">emg_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\emg.pkl&quot;</span><span class="p">),</span>
-    <span class="n">ground_truth_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\kinematics.pkl&quot;</span><span class="p">),</span>
-    <span class="n">save_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;data\dataset.zarr&quot;</span><span class="p">),</span>
+    <span class="n">emg_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\emg.pkl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
+    <span class="n">ground_truth_data_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\kinematics.pkl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
+    <span class="n">save_path</span><span class="o">=</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;data\dataset.zarr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
     <span class="n">tasks_to_use</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">],</span>
 <span class="p">)</span>
 
 <span class="n">dataset</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.189 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.196 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  1369 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-3-create-dataset-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">

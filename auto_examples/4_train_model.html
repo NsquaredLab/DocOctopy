@@ -299,9 +299,10 @@ to download the full example code.</p>
 <li><p>data_path: Path to the dataset file.</p></li>
 <li><p>dataloader_parameters: Parameters for the DataLoader.</p></li>
 </ul>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">doc_octopy.datasets.loader</span> <span class="kn">import</span> <span class="n">EMGDatasetLoader</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a>
+<span class="kn">from</span> <span class="nn">doc_octopy.datasets.loader</span> <span class="kn">import</span> <span class="n">EMGDatasetLoader</span>
 
-<span class="n">loader</span> <span class="o">=</span> <span class="n">EMGDatasetLoader</span><span class="p">(</span><span class="s2">&quot;data/dataset.zarr&quot;</span><span class="p">,</span> <span class="n">dataloader_parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;drop_last&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">EMGDatasetLoader</span><span class="p">(</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data/dataset.zarr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span> <span class="n">dataloader_parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;drop_last&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
 </div>
 </section>
@@ -342,7 +343,7 @@ to download the full example code.</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/examples/4_train_model.py&quot;</span>, line <span class="m">56</span>, in <span class="n">&lt;module&gt;</span>
+  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/examples/4_train_model.py&quot;</span>, line <span class="m">57</span>, in <span class="n">&lt;module&gt;</span>
 <span class="w">    </span><span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">datamodule</span><span class="o">=</span><span class="n">loader</span><span class="p">)</span>
   File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py&quot;</span>, line <span class="m">538</span>, in <span class="n">fit</span>
 <span class="w">    </span><span class="n">call</span><span class="o">.</span><span class="n">_call_and_handle_interrupt</span><span class="p">(</span>
@@ -381,7 +382,7 @@ to download the full example code.</p>
 <span class="gr">KeyError</span>: <span class="n">&#39;training&#39;</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.590 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.710 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  1369 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-4-train-model-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">

@@ -46,11 +46,11 @@ In this example we will create a dataset that was used in our real-time paper [1
     from doc_octopy.datasets.supervised import EMGDataset
 
     dataset = EMGDataset(
-        emg_data_path=Path("data\emg.pkl"),
-        ground_truth_data_path=Path("data\kinematics.pkl"),
+        emg_data_path=Path("data\emg.pkl").resolve(),
+        ground_truth_data_path=Path("data\kinematics.pkl").resolve(),
         sampling_frequency=2044.0,
         tasks_to_use=["1", "2"],
-        save_path=Path(r"data\dataset.zarr"),
+        save_path=Path(r"data\dataset.zarr").resolve(),
         emg_filter_pipeline_after_chunking=[
             [
                 SOSFrequencyFilter(
@@ -108,7 +108,7 @@ In this example we will create a dataset that was used in our real-time paper [1
         with self.emg_data_path.open("rb") as f:
       File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/pathlib.py", line 1119, in open
         return self._accessor.open(self, mode, buffering, encoding, errors,
-    FileNotFoundError: [Errno 2] No such file or directory: 'data\\emg.pkl'
+    FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/DocOctopy/DocOctopy/examples/data\\emg.pkl'
 
 
 
@@ -126,9 +126,9 @@ Default dataset are also available. Here is an example of how to use the EMBCDat
     from doc_octopy.datasets.defaults import EMBCDataset
 
     dataset = EMBCDataset(
-        emg_data_path=Path("data\emg.pkl"),
-        ground_truth_data_path=Path("data\kinematics.pkl"),
-        save_path=Path(r"data\dataset.zarr"),
+        emg_data_path=Path("data\emg.pkl").resolve(),
+        ground_truth_data_path=Path("data\kinematics.pkl").resolve(),
+        save_path=Path(r"data\dataset.zarr").resolve(),
         tasks_to_use=["1", "2"],
     )
 
@@ -137,7 +137,7 @@ Default dataset are also available. Here is an example of how to use the EMBCDat
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.189 seconds)
+   **Total running time of the script:** (0 minutes 0.196 seconds)
 
 **Estimated memory usage:**  1369 MB
 
