@@ -302,7 +302,7 @@ to download the full example code.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a>
 <span class="kn">from</span> <span class="nn">doc_octopy.datasets.loader</span> <span class="kn">import</span> <span class="n">EMGDatasetLoader</span>
 
-<span class="n">loader</span> <span class="o">=</span> <span class="n">EMGDatasetLoader</span><span class="p">(</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data\dataset.zarr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span> <span class="n">dataloader_parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;drop_last&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">EMGDatasetLoader</span><span class="p">(</span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a><span class="p">(</span><span class="s2">&quot;data/dataset.zarr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span> <span class="n">dataloader_parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;drop_last&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
 </pre></div>
 </div>
 </section>
@@ -342,48 +342,219 @@ to download the full example code.</p>
 <span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">datamodule</span><span class="o">=</span><span class="n">loader</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/examples/4_train_model.py&quot;</span>, line <span class="m">57</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">datamodule</span><span class="o">=</span><span class="n">loader</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py&quot;</span>, line <span class="m">538</span>, in <span class="n">fit</span>
-<span class="w">    </span><span class="n">call</span><span class="o">.</span><span class="n">_call_and_handle_interrupt</span><span class="p">(</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py&quot;</span>, line <span class="m">47</span>, in <span class="n">_call_and_handle_interrupt</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">trainer_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py&quot;</span>, line <span class="m">574</span>, in <span class="n">_fit_impl</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">ckpt_path</span><span class="o">=</span><span class="n">ckpt_path</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py&quot;</span>, line <span class="m">957</span>, in <span class="n">_run</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py&quot;</span>, line <span class="m">158</span>, in <span class="n">setup</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">setup_optimizers</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py&quot;</span>, line <span class="m">138</span>, in <span class="n">setup_optimizers</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">optimizers</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr_scheduler_configs</span> <span class="o">=</span> <span class="n">_init_optimizers_and_lr_schedulers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lightning_module</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py&quot;</span>, line <span class="m">179</span>, in <span class="n">_init_optimizers_and_lr_schedulers</span>
-<span class="w">    </span><span class="n">optim_conf</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="n">_call_lightning_module_hook</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">&quot;configure_optimizers&quot;</span><span class="p">,</span> <span class="n">pl_module</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py&quot;</span>, line <span class="m">167</span>, in <span class="n">_call_lightning_module_hook</span>
-<span class="w">    </span><span class="n">output</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/doc_octopy/models/definitions/raul_net/online/v16.py&quot;</span>, line <span class="m">154</span>, in <span class="n">configure_optimizers</span>
-<span class="w">    </span><span class="n">total_steps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">estimated_stepping_batches</span><span class="p">,</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py&quot;</span>, line <span class="m">1675</span>, in <span class="n">estimated_stepping_batches</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">fit_loop</span><span class="o">.</span><span class="n">setup_data</span><span class="p">()</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py&quot;</span>, line <span class="m">225</span>, in <span class="n">setup_data</span>
-<span class="w">    </span><span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">_request_dataloader</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py&quot;</span>, line <span class="m">325</span>, in <span class="n">_request_dataloader</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">data_source</span><span class="o">.</span><span class="n">dataloader</span><span class="p">()</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py&quot;</span>, line <span class="m">292</span>, in <span class="n">dataloader</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">call</span><span class="o">.</span><span class="n">_call_lightning_datamodule_hook</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">trainer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py&quot;</span>, line <span class="m">189</span>, in <span class="n">_call_lightning_datamodule_hook</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/doc_octopy/datasets/loader.py&quot;</span>, line <span class="m">126</span>, in <span class="n">train_dataloader</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_EMGDatasetLoader</span><span class="p">(</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/doc_octopy/datasets/loader.py&quot;</span>, line <span class="m">42</span>, in <span class="n">__init__</span>
-<span class="w">    </span><span class="bp">self</span><span class="o">.</span><span class="n">_emg_data</span> <span class="o">=</span> <span class="n">zarr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zarr_file</span><span class="p">))[</span><span class="bp">self</span><span class="o">.</span><span class="n">subset_name</span><span class="p">][</span><span class="s2">&quot;emg&quot;</span><span class="p">]</span>
-  File <span class="nb">&quot;/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/zarr/hierarchy.py&quot;</span>, line <span class="m">511</span>, in <span class="n">__getitem__</span>
-<span class="w">    </span><span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-<span class="gr">KeyError</span>: <span class="n">&#39;training&#39;</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/DocOctopy/DocOctopy/.venv/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/accelerator_connector.py:512: You passed `Trainer(accelerator=&#39;cpu&#39;, precision=&#39;16-mixed&#39;)` but AMP with fp16 is not supported on CPU. Using `precision=&#39;bf16-mixed&#39;` instead.
+
+Sanity Checking: |          | 0/? [00:00&lt;?, ?it/s]
+Sanity Checking:   0%|          | 0/2 [00:00&lt;?, ?it/s]
+Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00&lt;?, ?it/s]
+Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:00&lt;00:00,  2.14it/s]
+Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:00&lt;00:00,  2.97it/s]
+
+
+Training: |          | 0/? [00:00&lt;?, ?it/s]
+Training:   0%|          | 0/91 [00:00&lt;?, ?it/s]
+Epoch 0:   0%|          | 0/91 [00:00&lt;?, ?it/s]
+Epoch 0:   1%|          | 1/91 [00:01&lt;02:13,  0.68it/s]
+Epoch 0:   1%|          | 1/91 [00:01&lt;02:13,  0.68it/s, v_num=0, loss_step=53.60]
+Epoch 0:   2%|▏         | 2/91 [00:02&lt;02:11,  0.68it/s, v_num=0, loss_step=53.60]
+Epoch 0:   2%|▏         | 2/91 [00:02&lt;02:11,  0.68it/s, v_num=0, loss_step=54.20]
+Epoch 0:   3%|▎         | 3/91 [00:04&lt;02:09,  0.68it/s, v_num=0, loss_step=54.20]
+Epoch 0:   3%|▎         | 3/91 [00:04&lt;02:09,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:   4%|▍         | 4/91 [00:05&lt;02:08,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:   4%|▍         | 4/91 [00:05&lt;02:08,  0.68it/s, v_num=0, loss_step=54.40]
+Epoch 0:   5%|▌         | 5/91 [00:07&lt;02:06,  0.68it/s, v_num=0, loss_step=54.40]
+Epoch 0:   5%|▌         | 5/91 [00:07&lt;02:06,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:   7%|▋         | 6/91 [00:08&lt;02:05,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:   7%|▋         | 6/91 [00:08&lt;02:05,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:   8%|▊         | 7/91 [00:10&lt;02:03,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:   8%|▊         | 7/91 [00:10&lt;02:03,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:   9%|▉         | 8/91 [00:11&lt;02:01,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:   9%|▉         | 8/91 [00:11&lt;02:01,  0.68it/s, v_num=0, loss_step=53.50]
+Epoch 0:  10%|▉         | 9/91 [00:13&lt;02:00,  0.68it/s, v_num=0, loss_step=53.50]
+Epoch 0:  10%|▉         | 9/91 [00:13&lt;02:00,  0.68it/s, v_num=0, loss_step=54.10]
+Epoch 0:  11%|█         | 10/91 [00:14&lt;01:59,  0.68it/s, v_num=0, loss_step=54.10]
+Epoch 0:  11%|█         | 10/91 [00:14&lt;01:59,  0.68it/s, v_num=0, loss_step=53.80]
+Epoch 0:  12%|█▏        | 11/91 [00:16&lt;01:57,  0.68it/s, v_num=0, loss_step=53.80]
+Epoch 0:  12%|█▏        | 11/91 [00:16&lt;01:57,  0.68it/s, v_num=0, loss_step=54.60]
+Epoch 0:  13%|█▎        | 12/91 [00:17&lt;01:56,  0.68it/s, v_num=0, loss_step=54.60]
+Epoch 0:  13%|█▎        | 12/91 [00:17&lt;01:56,  0.68it/s, v_num=0, loss_step=53.60]
+Epoch 0:  14%|█▍        | 13/91 [00:19&lt;01:54,  0.68it/s, v_num=0, loss_step=53.60]
+Epoch 0:  14%|█▍        | 13/91 [00:19&lt;01:54,  0.68it/s, v_num=0, loss_step=53.50]
+Epoch 0:  15%|█▌        | 14/91 [00:20&lt;01:53,  0.68it/s, v_num=0, loss_step=53.50]
+Epoch 0:  15%|█▌        | 14/91 [00:20&lt;01:53,  0.68it/s, v_num=0, loss_step=53.70]
+Epoch 0:  16%|█▋        | 15/91 [00:22&lt;01:51,  0.68it/s, v_num=0, loss_step=53.70]
+Epoch 0:  16%|█▋        | 15/91 [00:22&lt;01:51,  0.68it/s, v_num=0, loss_step=54.30]
+Epoch 0:  18%|█▊        | 16/91 [00:23&lt;01:50,  0.68it/s, v_num=0, loss_step=54.30]
+Epoch 0:  18%|█▊        | 16/91 [00:23&lt;01:50,  0.68it/s, v_num=0, loss_step=53.70]
+Epoch 0:  19%|█▊        | 17/91 [00:25&lt;01:48,  0.68it/s, v_num=0, loss_step=53.70]
+Epoch 0:  19%|█▊        | 17/91 [00:25&lt;01:48,  0.68it/s, v_num=0, loss_step=53.50]
+Epoch 0:  20%|█▉        | 18/91 [00:26&lt;01:47,  0.68it/s, v_num=0, loss_step=53.50]
+Epoch 0:  20%|█▉        | 18/91 [00:26&lt;01:47,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  21%|██        | 19/91 [00:27&lt;01:45,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  21%|██        | 19/91 [00:27&lt;01:45,  0.68it/s, v_num=0, loss_step=54.30]
+Epoch 0:  22%|██▏       | 20/91 [00:29&lt;01:44,  0.68it/s, v_num=0, loss_step=54.30]
+Epoch 0:  22%|██▏       | 20/91 [00:29&lt;01:44,  0.68it/s, v_num=0, loss_step=53.80]
+Epoch 0:  23%|██▎       | 21/91 [00:30&lt;01:43,  0.68it/s, v_num=0, loss_step=53.80]
+Epoch 0:  23%|██▎       | 21/91 [00:30&lt;01:43,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  24%|██▍       | 22/91 [00:32&lt;01:41,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  24%|██▍       | 22/91 [00:32&lt;01:41,  0.68it/s, v_num=0, loss_step=53.20]
+Epoch 0:  25%|██▌       | 23/91 [00:33&lt;01:40,  0.68it/s, v_num=0, loss_step=53.20]
+Epoch 0:  25%|██▌       | 23/91 [00:33&lt;01:40,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  26%|██▋       | 24/91 [00:35&lt;01:38,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  26%|██▋       | 24/91 [00:35&lt;01:38,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:  27%|██▋       | 25/91 [00:36&lt;01:37,  0.68it/s, v_num=0, loss_step=53.30]
+Epoch 0:  27%|██▋       | 25/91 [00:36&lt;01:37,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  29%|██▊       | 26/91 [00:38&lt;01:35,  0.68it/s, v_num=0, loss_step=53.40]
+Epoch 0:  29%|██▊       | 26/91 [00:38&lt;01:35,  0.68it/s, v_num=0, loss_step=53.00]
+Epoch 0:  30%|██▉       | 27/91 [00:39&lt;01:34,  0.68it/s, v_num=0, loss_step=53.00]
+Epoch 0:  30%|██▉       | 27/91 [00:39&lt;01:34,  0.68it/s, v_num=0, loss_step=52.30]
+Epoch 0:  31%|███       | 28/91 [00:41&lt;01:32,  0.68it/s, v_num=0, loss_step=52.30]
+Epoch 0:  31%|███       | 28/91 [00:41&lt;01:32,  0.68it/s, v_num=0, loss_step=52.30]
+Epoch 0:  32%|███▏      | 29/91 [00:42&lt;01:31,  0.68it/s, v_num=0, loss_step=52.30]
+Epoch 0:  32%|███▏      | 29/91 [00:42&lt;01:31,  0.68it/s, v_num=0, loss_step=52.90]
+Epoch 0:  33%|███▎      | 30/91 [00:44&lt;01:30,  0.68it/s, v_num=0, loss_step=52.90]
+Epoch 0:  33%|███▎      | 30/91 [00:44&lt;01:30,  0.68it/s, v_num=0, loss_step=51.40]
+Epoch 0:  34%|███▍      | 31/91 [00:45&lt;01:28,  0.68it/s, v_num=0, loss_step=51.40]
+Epoch 0:  34%|███▍      | 31/91 [00:45&lt;01:28,  0.68it/s, v_num=0, loss_step=51.60]
+Epoch 0:  35%|███▌      | 32/91 [00:47&lt;01:27,  0.68it/s, v_num=0, loss_step=51.60]
+Epoch 0:  35%|███▌      | 32/91 [00:47&lt;01:27,  0.68it/s, v_num=0, loss_step=51.20]
+Epoch 0:  36%|███▋      | 33/91 [00:48&lt;01:25,  0.68it/s, v_num=0, loss_step=51.20]
+Epoch 0:  36%|███▋      | 33/91 [00:48&lt;01:25,  0.68it/s, v_num=0, loss_step=50.90]
+Epoch 0:  37%|███▋      | 34/91 [00:50&lt;01:24,  0.68it/s, v_num=0, loss_step=50.90]
+Epoch 0:  37%|███▋      | 34/91 [00:50&lt;01:24,  0.68it/s, v_num=0, loss_step=51.10]
+Epoch 0:  38%|███▊      | 35/91 [00:51&lt;01:22,  0.68it/s, v_num=0, loss_step=51.10]
+Epoch 0:  38%|███▊      | 35/91 [00:51&lt;01:22,  0.68it/s, v_num=0, loss_step=50.80]
+Epoch 0:  40%|███▉      | 36/91 [00:53&lt;01:21,  0.68it/s, v_num=0, loss_step=50.80]
+Epoch 0:  40%|███▉      | 36/91 [00:53&lt;01:21,  0.68it/s, v_num=0, loss_step=51.30]
+Epoch 0:  41%|████      | 37/91 [00:54&lt;01:19,  0.68it/s, v_num=0, loss_step=51.30]
+Epoch 0:  41%|████      | 37/91 [00:54&lt;01:19,  0.68it/s, v_num=0, loss_step=51.30]
+Epoch 0:  42%|████▏     | 38/91 [00:56&lt;01:18,  0.68it/s, v_num=0, loss_step=51.30]
+Epoch 0:  42%|████▏     | 38/91 [00:56&lt;01:18,  0.68it/s, v_num=0, loss_step=49.60]
+Epoch 0:  43%|████▎     | 39/91 [00:57&lt;01:16,  0.68it/s, v_num=0, loss_step=49.60]
+Epoch 0:  43%|████▎     | 39/91 [00:57&lt;01:16,  0.68it/s, v_num=0, loss_step=49.40]
+Epoch 0:  44%|████▍     | 40/91 [00:59&lt;01:15,  0.68it/s, v_num=0, loss_step=49.40]
+Epoch 0:  44%|████▍     | 40/91 [00:59&lt;01:15,  0.68it/s, v_num=0, loss_step=48.50]
+Epoch 0:  45%|████▌     | 41/91 [01:00&lt;01:13,  0.68it/s, v_num=0, loss_step=48.50]
+Epoch 0:  45%|████▌     | 41/91 [01:00&lt;01:13,  0.68it/s, v_num=0, loss_step=49.00]
+Epoch 0:  46%|████▌     | 42/91 [01:02&lt;01:12,  0.68it/s, v_num=0, loss_step=49.00]
+Epoch 0:  46%|████▌     | 42/91 [01:02&lt;01:12,  0.68it/s, v_num=0, loss_step=48.60]
+Epoch 0:  47%|████▋     | 43/91 [01:03&lt;01:10,  0.68it/s, v_num=0, loss_step=48.60]
+Epoch 0:  47%|████▋     | 43/91 [01:03&lt;01:10,  0.68it/s, v_num=0, loss_step=47.70]
+Epoch 0:  48%|████▊     | 44/91 [01:04&lt;01:09,  0.68it/s, v_num=0, loss_step=47.70]
+Epoch 0:  48%|████▊     | 44/91 [01:04&lt;01:09,  0.68it/s, v_num=0, loss_step=47.80]
+Epoch 0:  49%|████▉     | 45/91 [01:06&lt;01:07,  0.68it/s, v_num=0, loss_step=47.80]
+Epoch 0:  49%|████▉     | 45/91 [01:06&lt;01:07,  0.68it/s, v_num=0, loss_step=45.80]
+Epoch 0:  51%|█████     | 46/91 [01:07&lt;01:06,  0.68it/s, v_num=0, loss_step=45.80]
+Epoch 0:  51%|█████     | 46/91 [01:07&lt;01:06,  0.68it/s, v_num=0, loss_step=45.80]
+Epoch 0:  52%|█████▏    | 47/91 [01:09&lt;01:04,  0.68it/s, v_num=0, loss_step=45.80]
+Epoch 0:  52%|█████▏    | 47/91 [01:09&lt;01:04,  0.68it/s, v_num=0, loss_step=44.80]
+Epoch 0:  53%|█████▎    | 48/91 [01:10&lt;01:03,  0.68it/s, v_num=0, loss_step=44.80]
+Epoch 0:  53%|█████▎    | 48/91 [01:10&lt;01:03,  0.68it/s, v_num=0, loss_step=45.20]
+Epoch 0:  54%|█████▍    | 49/91 [01:12&lt;01:01,  0.68it/s, v_num=0, loss_step=45.20]
+Epoch 0:  54%|█████▍    | 49/91 [01:12&lt;01:01,  0.68it/s, v_num=0, loss_step=44.60]
+Epoch 0:  55%|█████▍    | 50/91 [01:13&lt;01:00,  0.68it/s, v_num=0, loss_step=44.60]
+Epoch 0:  55%|█████▍    | 50/91 [01:13&lt;01:00,  0.68it/s, v_num=0, loss_step=43.90]
+Epoch 0:  56%|█████▌    | 51/91 [01:15&lt;00:59,  0.68it/s, v_num=0, loss_step=43.90]
+Epoch 0:  56%|█████▌    | 51/91 [01:15&lt;00:59,  0.68it/s, v_num=0, loss_step=43.90]
+Epoch 0:  57%|█████▋    | 52/91 [01:16&lt;00:57,  0.68it/s, v_num=0, loss_step=43.90]
+Epoch 0:  57%|█████▋    | 52/91 [01:16&lt;00:57,  0.68it/s, v_num=0, loss_step=42.40]
+Epoch 0:  58%|█████▊    | 53/91 [01:18&lt;00:56,  0.68it/s, v_num=0, loss_step=42.40]
+Epoch 0:  58%|█████▊    | 53/91 [01:18&lt;00:56,  0.68it/s, v_num=0, loss_step=42.10]
+Epoch 0:  59%|█████▉    | 54/91 [01:19&lt;00:54,  0.68it/s, v_num=0, loss_step=42.10]
+Epoch 0:  59%|█████▉    | 54/91 [01:19&lt;00:54,  0.68it/s, v_num=0, loss_step=41.60]
+Epoch 0:  60%|██████    | 55/91 [01:21&lt;00:53,  0.68it/s, v_num=0, loss_step=41.60]
+Epoch 0:  60%|██████    | 55/91 [01:21&lt;00:53,  0.68it/s, v_num=0, loss_step=41.70]
+Epoch 0:  62%|██████▏   | 56/91 [01:22&lt;00:51,  0.68it/s, v_num=0, loss_step=41.70]
+Epoch 0:  62%|██████▏   | 56/91 [01:22&lt;00:51,  0.68it/s, v_num=0, loss_step=40.80]
+Epoch 0:  63%|██████▎   | 57/91 [01:24&lt;00:50,  0.68it/s, v_num=0, loss_step=40.80]
+Epoch 0:  63%|██████▎   | 57/91 [01:24&lt;00:50,  0.68it/s, v_num=0, loss_step=40.50]
+Epoch 0:  64%|██████▎   | 58/91 [01:25&lt;00:48,  0.68it/s, v_num=0, loss_step=40.50]
+Epoch 0:  64%|██████▎   | 58/91 [01:25&lt;00:48,  0.68it/s, v_num=0, loss_step=39.60]
+Epoch 0:  65%|██████▍   | 59/91 [01:27&lt;00:47,  0.68it/s, v_num=0, loss_step=39.60]
+Epoch 0:  65%|██████▍   | 59/91 [01:27&lt;00:47,  0.68it/s, v_num=0, loss_step=39.40]
+Epoch 0:  66%|██████▌   | 60/91 [01:28&lt;00:45,  0.68it/s, v_num=0, loss_step=39.40]
+Epoch 0:  66%|██████▌   | 60/91 [01:28&lt;00:45,  0.68it/s, v_num=0, loss_step=38.90]
+Epoch 0:  67%|██████▋   | 61/91 [01:30&lt;00:44,  0.68it/s, v_num=0, loss_step=38.90]
+Epoch 0:  67%|██████▋   | 61/91 [01:30&lt;00:44,  0.68it/s, v_num=0, loss_step=38.10]
+Epoch 0:  68%|██████▊   | 62/91 [01:31&lt;00:42,  0.68it/s, v_num=0, loss_step=38.10]
+Epoch 0:  68%|██████▊   | 62/91 [01:31&lt;00:42,  0.68it/s, v_num=0, loss_step=37.90]
+Epoch 0:  69%|██████▉   | 63/91 [01:33&lt;00:41,  0.68it/s, v_num=0, loss_step=37.90]
+Epoch 0:  69%|██████▉   | 63/91 [01:33&lt;00:41,  0.68it/s, v_num=0, loss_step=37.80]
+Epoch 0:  70%|███████   | 64/91 [01:34&lt;00:39,  0.68it/s, v_num=0, loss_step=37.80]
+Epoch 0:  70%|███████   | 64/91 [01:34&lt;00:39,  0.68it/s, v_num=0, loss_step=39.10]
+Epoch 0:  71%|███████▏  | 65/91 [01:36&lt;00:38,  0.68it/s, v_num=0, loss_step=39.10]
+Epoch 0:  71%|███████▏  | 65/91 [01:36&lt;00:38,  0.68it/s, v_num=0, loss_step=37.00]
+Epoch 0:  73%|███████▎  | 66/91 [01:37&lt;00:36,  0.68it/s, v_num=0, loss_step=37.00]
+Epoch 0:  73%|███████▎  | 66/91 [01:37&lt;00:36,  0.68it/s, v_num=0, loss_step=36.30]
+Epoch 0:  74%|███████▎  | 67/91 [01:39&lt;00:35,  0.68it/s, v_num=0, loss_step=36.30]
+Epoch 0:  74%|███████▎  | 67/91 [01:39&lt;00:35,  0.68it/s, v_num=0, loss_step=36.20]
+Epoch 0:  75%|███████▍  | 68/91 [01:40&lt;00:33,  0.68it/s, v_num=0, loss_step=36.20]
+Epoch 0:  75%|███████▍  | 68/91 [01:40&lt;00:33,  0.68it/s, v_num=0, loss_step=37.40]
+Epoch 0:  76%|███████▌  | 69/91 [01:41&lt;00:32,  0.68it/s, v_num=0, loss_step=37.40]
+Epoch 0:  76%|███████▌  | 69/91 [01:41&lt;00:32,  0.68it/s, v_num=0, loss_step=36.80]
+Epoch 0:  77%|███████▋  | 70/91 [01:43&lt;00:31,  0.68it/s, v_num=0, loss_step=36.80]
+Epoch 0:  77%|███████▋  | 70/91 [01:43&lt;00:31,  0.68it/s, v_num=0, loss_step=37.20]
+Epoch 0:  78%|███████▊  | 71/91 [01:44&lt;00:29,  0.68it/s, v_num=0, loss_step=37.20]
+Epoch 0:  78%|███████▊  | 71/91 [01:44&lt;00:29,  0.68it/s, v_num=0, loss_step=36.40]
+Epoch 0:  79%|███████▉  | 72/91 [01:46&lt;00:28,  0.68it/s, v_num=0, loss_step=36.40]
+Epoch 0:  79%|███████▉  | 72/91 [01:46&lt;00:28,  0.68it/s, v_num=0, loss_step=36.00]
+Epoch 0:  80%|████████  | 73/91 [01:47&lt;00:26,  0.68it/s, v_num=0, loss_step=36.00]
+Epoch 0:  80%|████████  | 73/91 [01:47&lt;00:26,  0.68it/s, v_num=0, loss_step=35.90]
+Epoch 0:  81%|████████▏ | 74/91 [01:49&lt;00:25,  0.68it/s, v_num=0, loss_step=35.90]
+Epoch 0:  81%|████████▏ | 74/91 [01:49&lt;00:25,  0.68it/s, v_num=0, loss_step=34.50]
+Epoch 0:  82%|████████▏ | 75/91 [01:50&lt;00:23,  0.68it/s, v_num=0, loss_step=34.50]
+Epoch 0:  82%|████████▏ | 75/91 [01:50&lt;00:23,  0.68it/s, v_num=0, loss_step=36.80]
+Epoch 0:  84%|████████▎ | 76/91 [01:52&lt;00:22,  0.68it/s, v_num=0, loss_step=36.80]
+Epoch 0:  84%|████████▎ | 76/91 [01:52&lt;00:22,  0.68it/s, v_num=0, loss_step=36.60]
+Epoch 0:  85%|████████▍ | 77/91 [01:53&lt;00:20,  0.68it/s, v_num=0, loss_step=36.60]
+Epoch 0:  85%|████████▍ | 77/91 [01:53&lt;00:20,  0.68it/s, v_num=0, loss_step=36.40]
+Epoch 0:  86%|████████▌ | 78/91 [01:55&lt;00:19,  0.68it/s, v_num=0, loss_step=36.40]
+Epoch 0:  86%|████████▌ | 78/91 [01:55&lt;00:19,  0.68it/s, v_num=0, loss_step=36.00]
+Epoch 0:  87%|████████▋ | 79/91 [01:56&lt;00:17,  0.68it/s, v_num=0, loss_step=36.00]
+Epoch 0:  87%|████████▋ | 79/91 [01:56&lt;00:17,  0.68it/s, v_num=0, loss_step=35.50]
+Epoch 0:  88%|████████▊ | 80/91 [01:58&lt;00:16,  0.68it/s, v_num=0, loss_step=35.50]
+Epoch 0:  88%|████████▊ | 80/91 [01:58&lt;00:16,  0.68it/s, v_num=0, loss_step=35.30]
+Epoch 0:  89%|████████▉ | 81/91 [01:59&lt;00:14,  0.68it/s, v_num=0, loss_step=35.30]
+Epoch 0:  89%|████████▉ | 81/91 [01:59&lt;00:14,  0.68it/s, v_num=0, loss_step=34.60]
+Epoch 0:  90%|█████████ | 82/91 [02:01&lt;00:13,  0.68it/s, v_num=0, loss_step=34.60]
+Epoch 0:  90%|█████████ | 82/91 [02:01&lt;00:13,  0.68it/s, v_num=0, loss_step=34.70]
+Epoch 0:  91%|█████████ | 83/91 [02:02&lt;00:11,  0.68it/s, v_num=0, loss_step=34.70]
+Epoch 0:  91%|█████████ | 83/91 [02:02&lt;00:11,  0.68it/s, v_num=0, loss_step=35.80]
+Epoch 0:  92%|█████████▏| 84/91 [02:04&lt;00:10,  0.68it/s, v_num=0, loss_step=35.80]
+Epoch 0:  92%|█████████▏| 84/91 [02:04&lt;00:10,  0.68it/s, v_num=0, loss_step=34.60]
+Epoch 0:  93%|█████████▎| 85/91 [02:05&lt;00:08,  0.68it/s, v_num=0, loss_step=34.60]
+Epoch 0:  93%|█████████▎| 85/91 [02:05&lt;00:08,  0.68it/s, v_num=0, loss_step=36.00]
+Epoch 0:  95%|█████████▍| 86/91 [02:07&lt;00:07,  0.68it/s, v_num=0, loss_step=36.00]
+Epoch 0:  95%|█████████▍| 86/91 [02:07&lt;00:07,  0.68it/s, v_num=0, loss_step=34.50]
+Epoch 0:  96%|█████████▌| 87/91 [02:08&lt;00:05,  0.68it/s, v_num=0, loss_step=34.50]
+Epoch 0:  96%|█████████▌| 87/91 [02:08&lt;00:05,  0.68it/s, v_num=0, loss_step=36.10]
+Epoch 0:  97%|█████████▋| 88/91 [02:10&lt;00:04,  0.68it/s, v_num=0, loss_step=36.10]
+Epoch 0:  97%|█████████▋| 88/91 [02:10&lt;00:04,  0.68it/s, v_num=0, loss_step=34.30]
+Epoch 0:  98%|█████████▊| 89/91 [02:11&lt;00:02,  0.68it/s, v_num=0, loss_step=34.30]
+Epoch 0:  98%|█████████▊| 89/91 [02:11&lt;00:02,  0.68it/s, v_num=0, loss_step=33.80]
+Epoch 0:  99%|█████████▉| 90/91 [02:13&lt;00:01,  0.68it/s, v_num=0, loss_step=33.80]
+Epoch 0:  99%|█████████▉| 90/91 [02:13&lt;00:01,  0.68it/s, v_num=0, loss_step=34.90]
+Epoch 0: 100%|██████████| 91/91 [02:14&lt;00:00,  0.68it/s, v_num=0, loss_step=34.90]
+Epoch 0: 100%|██████████| 91/91 [02:14&lt;00:00,  0.68it/s, v_num=0, loss_step=35.20]
+
+Validation: |          | 0/? [00:00&lt;?, ?it/s]
+
+Validation:   0%|          | 0/2 [00:00&lt;?, ?it/s]
+
+Validation DataLoader 0:   0%|          | 0/2 [00:00&lt;?, ?it/s]
+
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00&lt;00:00,  2.49it/s]
+
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00&lt;00:00,  3.16it/s]
+
+
+Epoch 0: 100%|██████████| 91/91 [02:15&lt;00:00,  0.67it/s, v_num=0, loss_step=35.20, val_loss=36.50]
+Epoch 0: 100%|██████████| 91/91 [02:15&lt;00:00,  0.67it/s, v_num=0, loss_step=35.20, val_loss=36.50, loss_epoch=45.10]
+Epoch 0: 100%|██████████| 91/91 [02:15&lt;00:00,  0.67it/s, v_num=0, loss_step=35.20, val_loss=36.50, loss_epoch=45.10]
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.702 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1475 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 16.817 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  120 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-4-train-model-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/ce39f9881119f429268c4361b8bea788/4_train_model.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">4_train_model.ipynb</span></code></a></p>
