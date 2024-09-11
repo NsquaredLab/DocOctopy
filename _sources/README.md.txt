@@ -11,23 +11,6 @@ DocOctopy , the **research** library for kinematics, kinetics, and everything el
 > **Important**  
 > Be aware that this project is used for **research**. Do not expect the same stability as from numpy for example.
 
-## What papers use this package?
-<p float="left">
-  <a href="https://doi.org/10.1109/TBME.2024.3432800" target="_blank"> <img src="_static/papers/Learning.jpg" width="25%" /> </a>
-  &nbsp;
-  <a href="https://doi.org/10.33965/ijcsis_2024190101" target="_blank"> <img src="_static/papers/Analysis.jpg" width="23%" /> </a>
-  &nbsp;
-  <a href="https://doi.org/10.1101/2024.05.28.24307964" target="_blank"> <img src="_static/papers/Identification.jpg" width="25%" /> </a>
-</p>
-
-<p float="left">
-<a href="https://doi.org/10/gtm4bt" target="_blank"> <img src="_static/papers/Influence.jpg" width="23%" /> </a>
-  &nbsp;
-  <a href="https://doi.org/10/gsgk4s" target="_blank"> <img src="_static/papers/Proportional.jpg" width="25%" /> </a>
-  &nbsp
-  <a href="https://doi.org/10/gq2f47" target="_blank"> <img src="_static/papers/Accurate.jpg" width="25%" /> </a>
-</p>
-
 ## How to install?
 > **WARNING**   
 > Order matters!
@@ -47,3 +30,20 @@ This projects uses the following structure:
 - docs: Contains the documentation.
 - examples: Contains examples on how to use the package.
 - tests: Contains tests for the package.
+
+## What papers/preprints use this package?
+<p float="middle">
+  <a href="https://doi.org/10.1109/TBME.2024.3432800" target="_blank"> <img src="_static/papers/Learning.jpg" width="31%" /> </a>
+  &nbsp;
+  <a href="https://doi.org/10.33965/ijcsis_2024190101" target="_blank"> <img src="_static/papers/Analysis.jpg" width="28.4%" /> </a>
+  &nbsp;
+  <a href="https://doi.org/10.1101/2024.05.28.24307964" target="_blank"> <img src="_static/papers/Identification.jpg" width="31%" /> </a>
+</p>
+
+<p float="middle">
+<a href="https://doi.org/10/gtm4bt" target="_blank"> <img src="_static/papers/Influence.jpg" width="28.4%" /> </a>
+  &nbsp;
+  <a href="https://doi.org/10/gsgk4s" target="_blank"> <img src="_static/papers/Proportional.jpg" width="31%" /> </a>
+  &nbsp
+  <a href="https://doi.org/10/gq2f47" target="_blank"> <img src="_static/papers/Accurate.jpg" width="31%" /> </a>
+</p>
