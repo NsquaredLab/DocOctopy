@@ -476,21 +476,12 @@
 
 <span class="sd">    This filter is useful for debugging and testing purposes.</span>
 
-<span class="sd">    .. important:: If the input array is provided at initialization, the filter will always return that array.</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    input_is_chunked : bool</span>
 <span class="sd">        Whether the input is chunked or not.</span>
 <span class="sd">    is_output : bool</span>
 <span class="sd">        Whether the filter is an output filter. If True, the resulting signal will be outputted by and dataset pipeline.</span>
-<span class="sd">    input_array : np.ndarray</span>
-<span class="sd">        The input array that will be returned by the filter. If provided, the filter will always return this array.</span>
-
-<span class="sd">    Attributes</span>
-<span class="sd">    ----------</span>
-<span class="sd">    input_array : np.ndarray</span>
-<span class="sd">        The input array that was filtered. This is stored after the filter is called.</span>
 
 <span class="sd">    Methods</span>
 <span class="sd">    -------</span>
@@ -502,7 +493,6 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">input_is_chunked</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">is_output</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">input_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
@@ -512,12 +502,8 @@
             <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_array</span> <span class="o">=</span> <span class="n">input_array</span>
-
     <span class="k">def</span> <span class="nf">_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_array</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">input_array</span> <span class="o">=</span> <span class="n">input_array</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_array</span></div>
+        <span class="k">return</span> <span class="n">input_array</span></div>
 
 </pre></div>
         </article>

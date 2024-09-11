@@ -337,35 +337,19 @@ is “both”, “chunked” or “not chunked.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="doc_octopy.datasets.filters.generic.IdentityFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">doc_octopy.datasets.filters.generic.</span></span><span class="sig-name descname"><span class="pre">IdentityFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_is_chunked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_array</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/doc_octopy/datasets/filters/generic.html#IdentityFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doc_octopy.datasets.filters.generic.IdentityFilter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">doc_octopy.datasets.filters.generic.</span></span><span class="sig-name descname"><span class="pre">IdentityFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_is_chunked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/doc_octopy/datasets/filters/generic.html#IdentityFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doc_octopy.datasets.filters.generic.IdentityFilter" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">FilterBaseClass</span></code></a></p>
 <p>Filter that returns the input array unchanged.</p>
 <p>This filter is useful for debugging and testing purposes.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If the input array is provided at initialization, the filter will always return that array.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_is_chunked</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Whether the input is chunked or not.</p></li>
 <li><p><strong>is_output</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – Whether the filter is an output filter. If True, the resulting signal will be outputted by and dataset pipeline.</p></li>
-<li><p><strong>input_array</strong> (<em>np.ndarray</em>) – The input array that will be returned by the filter. If provided, the filter will always return this array.</p></li>
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>)</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.datasets.filters.generic.IdentityFilter.input_array">
-<span class="sig-name descname"><span class="pre">input_array</span></span><a class="headerlink" href="#doc_octopy.datasets.filters.generic.IdentityFilter.input_array" title="Link to this definition">¶</a></dt>
-<dd><p>The input array that was filtered. This is stored after the filter is called.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="doc_octopy.datasets.filters.generic.IdentityFilter.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">np.ndarray</span></span></span><a class="headerlink" href="#doc_octopy.datasets.filters.generic.IdentityFilter.__call__" title="Link to this definition">¶</a></dt>
@@ -465,7 +449,6 @@ is “both”, “chunked” or “not chunked”.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#doc_octopy.datasets.filters.generic.IdentityFilter"><code class="docutils literal notranslate"><span class="pre">IdentityFilter</span></code></a><ul>
-<li><a class="reference internal" href="#doc_octopy.datasets.filters.generic.IdentityFilter.input_array"><code class="docutils literal notranslate"><span class="pre">IdentityFilter.input_array</span></code></a></li>
 <li><a class="reference internal" href="#doc_octopy.datasets.filters.generic.IdentityFilter.__call__"><code class="docutils literal notranslate"><span class="pre">IdentityFilter.__call__</span></code></a></li>
 </ul>
 </li>

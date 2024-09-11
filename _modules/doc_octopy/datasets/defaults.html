@@ -333,11 +333,13 @@
         <span class="n">ground_truth_data_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">save_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
         <span class="n">tasks_to_use</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">EXPERIMENTS_TO_USE</span><span class="p">,</span>
+        <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">emg_data_path</span> <span class="o">=</span> <span class="n">emg_data_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data_path</span> <span class="o">=</span> <span class="n">ground_truth_data_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">save_path</span> <span class="o">=</span> <span class="n">save_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_use</span> <span class="o">=</span> <span class="n">tasks_to_use</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
 
 <div class="viewcode-block" id="EMBCDataset.create_dataset">
 <a class="viewcode-back" href="../../../modules/datasets.html#doc_octopy.datasets.defaults.EMBCDataset.create_dataset">[docs]</a>
@@ -362,13 +364,13 @@
             <span class="n">emg_representations_to_filter_after_chunking</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Last&quot;</span><span class="p">],</span>
             <span class="n">ground_truth_filter_pipeline_before_chunking</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">[</span>
-                    <span class="n">ApplyFunctionFilter</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">,</span> <span class="n">newshape</span><span class="o">=</span><span class="p">(</span><span class="mi">63</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
+                    <span class="n">ApplyFunctionFilter</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Reshape&quot;</span><span class="p">,</span> <span class="n">newshape</span><span class="o">=</span><span class="p">(</span><span class="mi">63</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span>
                     <span class="n">IndexDataFilter</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">63</span><span class="p">),)),</span>
                 <span class="p">]</span>
             <span class="p">],</span>
             <span class="n">ground_truth_representations_to_filter_before_chunking</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Input&quot;</span><span class="p">],</span>
             <span class="n">ground_truth_filter_after_pipeline_chunking</span><span class="o">=</span><span class="p">[</span>
-                <span class="p">[</span><span class="n">ApplyFunctionFilter</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+                <span class="p">[</span><span class="n">ApplyFunctionFilter</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
             <span class="p">],</span>
             <span class="n">ground_truth_representations_to_filter_after_pipeline_chunking</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Last&quot;</span><span class="p">],</span>
             <span class="n">augmentation_pipelines</span><span class="o">=</span><span class="p">[</span>
@@ -377,6 +379,7 @@
                 <span class="p">[</span><span class="n">WaveletDecomposition</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nr_of_grids</span><span class="o">=</span><span class="mi">5</span><span class="p">)],</span>
             <span class="p">],</span>
             <span class="n">amount_of_chunks_to_augment_at_once</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+            <span class="n">debug</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">()</span></div>
 </div>
 
