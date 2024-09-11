@@ -461,9 +461,9 @@ This can be achieved in a more concise way by using the apply_filter_pipeline me
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.909 seconds)
+   **Total running time of the script:** (0 minutes 6.962 seconds)
 
-**Estimated memory usage:**  1364 MB
+**Estimated memory usage:**  1314 MB
 
 
 .. _sphx_glr_download_auto_examples_2_complex_filtering.py:
