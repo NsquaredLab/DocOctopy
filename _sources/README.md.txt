@@ -14,17 +14,17 @@ DocOctopy , the **research** library for kinematics, kinetics, and everything el
 ## What papers use this package?
 <p float="left">
   <a href="https://doi.org/10.1109/TBME.2024.3432800" target="_blank"> <img src="_static/papers/Learning.jpg" width="29%" /> </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;
   <a href="https://doi.org/10.33965/ijcsis_2024190101" target="_blank"> <img src="_static/papers/Analysis.jpg" width="26.5%" /> </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;
   <a href="https://doi.org/10.1101/2024.05.28.24307964" target="_blank"> <img src="_static/papers/Identification.jpg" width="29%" /> </a>
 </p>
 
 <p float="left">
 <a href="https://doi.org/10/gtm4bt" target="_blank"> <img src="_static/papers/Influence.jpg" width="26.5%" /> </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;
   <a href="https://doi.org/10/gsgk4s" target="_blank"> <img src="_static/papers/Proportional.jpg" width="29%" /> </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp
   <a href="https://doi.org/10/gq2f47" target="_blank"> <img src="_static/papers/Accurate.jpg" width="29%" /> </a>
 </p>
 
@@ -34,8 +34,8 @@ DocOctopy , the **research** library for kinematics, kinetics, and everything el
 - clone
 - install [poetry](https://python-poetry.org/docs/#installation)
 - based on your hardware:
-  - GPU (NVIDIA): `poetry install
-  - CPU: run `pip install torch torchvision` after `poetry install`
+  - GPU (NVIDIA): `poetry install`
+  - CPU: run `pip install torch torchvision --upgrade` after `poetry install`
 - for building the documentation add `docs` to the *with* flag: `poetry install --with docs`
 
 ## What is what?
