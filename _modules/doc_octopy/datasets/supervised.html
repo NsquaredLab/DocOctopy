@@ -279,7 +279,7 @@
           <h1>Source code for doc_octopy.datasets.supervised</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">zarr</span>
@@ -340,7 +340,7 @@
 <span class="sd">    ground_truth_filter_pipeline_before_chunking : list[list[FilterBaseClass]]</span>
 <span class="sd">        Sequence of filters to apply to the ground truth data before chunking. The filters should inherit from</span>
 <span class="sd">        FilterBaseClass.</span>
-<span class="sd">    ground_truth_filter_after_pipeline_chunking : list[list[FilterBaseClass]]</span>
+<span class="sd">    ground_truth_filter_pipeline_after_chunking : list[list[FilterBaseClass]]</span>
 <span class="sd">        Sequence of filters to apply to the ground truth data after chunking. The filters should inherit from</span>
 <span class="sd">        FilterBaseClass.</span>
 <span class="sd">    chunk_size : int</span>
@@ -369,7 +369,9 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">emg_data_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;REPLACE ME&quot;</span><span class="p">),</span>
+        <span class="n">emg_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">ground_truth_data_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;REPLACE ME&quot;</span><span class="p">),</span>
+        <span class="n">ground_truth_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">ground_truth_data_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;kinematics&quot;</span><span class="p">,</span>
         <span class="n">sampling_frequency</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
         <span class="n">tasks_to_use</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
@@ -380,8 +382,8 @@
         <span class="n">emg_representations_to_filter_after_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
         <span class="n">ground_truth_filter_pipeline_before_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">FilterBaseClass</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(),</span>
         <span class="n">ground_truth_representations_to_filter_before_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
-        <span class="n">ground_truth_filter_after_pipeline_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">FilterBaseClass</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(),</span>
-        <span class="n">ground_truth_representations_to_filter_after_pipeline_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+        <span class="n">ground_truth_filter_pipeline_after_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">FilterBaseClass</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(),</span>
+        <span class="n">ground_truth_representations_to_filter_after_chunking</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
         <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">192</span><span class="p">,</span>
         <span class="n">chunk_shift</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
         <span class="n">testing_split_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
@@ -391,7 +393,17 @@
         <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">emg_data_path</span> <span class="o">=</span> <span class="n">emg_data_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emg_data</span> <span class="o">=</span> <span class="n">emg_data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data_path</span> <span class="o">=</span> <span class="n">ground_truth_data_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data</span> <span class="o">=</span> <span class="n">ground_truth_data</span>
+
+        <span class="c1"># check if at least one of the data sources is provided</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">emg_data</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">emg_data_path</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least one of the EMG data sources should be provided.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data_path</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;At least one of the ground truth data sources should be provided.&quot;</span>
+            <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data_type</span> <span class="o">=</span> <span class="n">ground_truth_data_type</span>
 
@@ -417,10 +429,10 @@
             <span class="n">emg_representations_to_filter_after_chunking</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_filter_pipeline_after_chunking</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">ground_truth_filter_after_pipeline_chunking</span>
+            <span class="n">ground_truth_filter_pipeline_after_chunking</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_representations_to_filter_after_pipeline_chunking</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">ground_truth_representations_to_filter_after_pipeline_chunking</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_representations_to_filter_after_chunking</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">ground_truth_representations_to_filter_after_chunking</span>
         <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_size</span>
@@ -436,7 +448,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">__tasks_string_length</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="nf">__add_data_to_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_Data</span><span class="p">,</span> <span class="n">groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">zarr</span><span class="o">.</span><span class="n">Group</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="nf">__add_data_to_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">_Data</span><span class="p">,</span> <span class="n">groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">zarr</span><span class="o">.</span><span class="n">Group</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+        <span class="n">training_data_sizes</span><span class="p">,</span> <span class="n">testing_data_sizes</span><span class="p">,</span> <span class="n">validation_data_sizes</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">output_representations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">validation_data_from_task</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -464,13 +480,27 @@
             <span class="p">):</span>
                 <span class="n">_add_to_dataset</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">data_from_task</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
 
+            <span class="n">training_data_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">training_data_from_task</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">testing_data_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">testing_data_from_task</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">testing_data_from_task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="mi">0</span>
+            <span class="p">)</span>
+            <span class="n">validation_data_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">validation_data_from_task</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">validation_data_from_task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="mi">0</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">training_data_sizes</span><span class="p">,</span> <span class="n">testing_data_sizes</span><span class="p">,</span> <span class="n">validation_data_sizes</span>
+
 <div class="viewcode-block" id="EMGDataset.create_dataset">
 <a class="viewcode-back" href="../../../modules/datasets.html#doc_octopy.datasets.supervised.EMGDataset.create_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">create_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">emg_data_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">emg_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">ground_truth_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">emg_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">emg_data</span> <span class="ow">or</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">emg_data_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+        <span class="n">ground_truth_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data</span> <span class="ow">or</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_data_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">save_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">dataset</span> <span class="o">=</span> <span class="n">zarr</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_path</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
@@ -479,9 +509,9 @@
         <span class="n">testing_group</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s2">&quot;testing&quot;</span><span class="p">)</span>
         <span class="n">validation_group</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">__tasks_string_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span>
-            <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_use</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
-        <span class="p">)</span>  <span class="c1"># need this to know the saving dtype for the labels</span>
+        <span class="c1"># need this to know the saving dtype for the labels</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__tasks_string_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_use</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+
         <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_use</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Filtering and splitting data&quot;</span><span class="p">):</span>
             <span class="n">emg_data_from_task</span> <span class="o">=</span> <span class="n">emg_data</span><span class="p">[</span><span class="n">task</span><span class="p">]</span>
             <span class="n">ground_truth_data_from_task</span> <span class="o">=</span> <span class="n">ground_truth_data</span><span class="p">[</span><span class="n">task</span><span class="p">]</span>
@@ -533,6 +563,7 @@
                         <span class="n">chunk_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">,</span>
                         <span class="n">chunk_shift</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_shift</span><span class="p">,</span>
                         <span class="n">is_output</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">emg_filter_pipeline_after_chunking</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;EMG_Chunkizer&quot;</span>
                     <span class="p">),</span>
                     <span class="n">representation_to_filter</span><span class="o">=</span><span class="s2">&quot;Last&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
@@ -587,7 +618,7 @@
 
             <span class="n">chunked_ground_truth_data_from_task</span><span class="o">.</span><span class="n">apply_filter_pipeline</span><span class="p">(</span>
                 <span class="n">filter_pipeline</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_filter_pipeline_after_chunking</span><span class="p">,</span>
-                <span class="n">representations_to_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_representations_to_filter_after_pipeline_chunking</span><span class="p">,</span>
+                <span class="n">representations_to_filter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ground_truth_representations_to_filter_after_chunking</span><span class="p">,</span>
             <span class="p">)</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
@@ -603,7 +634,12 @@
                 <span class="p">[</span><span class="s2">&quot;emg&quot;</span><span class="p">,</span> <span class="s2">&quot;ground_truth&quot;</span><span class="p">],</span>
                 <span class="p">[</span><span class="n">chunked_emg_data_from_task</span><span class="p">,</span> <span class="n">chunked_ground_truth_data_from_task</span><span class="p">],</span>
             <span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__add_data_to_dataset</span><span class="p">(</span>
+                <span class="c1"># assumption is made that the emg and ground truth data have the same amount of chunks</span>
+                <span class="p">(</span>
+                    <span class="n">training_sizes</span><span class="p">,</span>
+                    <span class="n">testing_sizes</span><span class="p">,</span>
+                    <span class="n">validation_sizes</span><span class="p">,</span>
+                <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add_data_to_dataset</span><span class="p">(</span>
                     <span class="n">chunked_data_from_task</span><span class="p">,</span>
                     <span class="p">[</span>
                         <span class="p">(</span>
@@ -623,25 +659,33 @@
                 <span class="n">chunked_ground_truth_data_from_task</span><span class="o">.</span><span class="n">output_representations</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
             <span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
+            <span class="c1"># check that all values in training_sizes, testing_sizes, and validation_sizes are the same</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">training_sizes</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;The training sizes are not the same.&quot;</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">testing_sizes</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;The testing sizes are not the same.&quot;</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">validation_sizes</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;The validation sizes are not the same.&quot;</span>
+
             <span class="k">assert</span> <span class="p">(</span>
                 <span class="n">data_length</span> <span class="o">==</span> <span class="n">data_length_ground_truth</span>
             <span class="p">),</span> <span class="s2">&quot;The data lengths of the EMG and ground truth data should be the same. For task </span><span class="si">{}</span><span class="s2">, the EMG data has length </span><span class="si">{}</span><span class="s2"> and the ground truth data has length </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">task</span><span class="p">,</span> <span class="n">data_length</span><span class="p">,</span> <span class="n">data_length_ground_truth</span>
             <span class="p">)</span>
 
-            <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="p">(</span><span class="n">training_group</span><span class="p">,</span> <span class="n">testing_group</span><span class="p">,</span> <span class="n">validation_group</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">training_group</span><span class="p">,</span> <span class="n">testing_group</span><span class="p">,</span> <span class="n">validation_group</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">training_sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">testing_sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">validation_sizes</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="c1"># assumption is made that all output representations have the same length</span>
+            <span class="p">):</span>
                 <span class="n">_add_to_dataset</span><span class="p">(</span>
                     <span class="n">g</span><span class="p">,</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">task</span><span class="p">]</span> <span class="o">*</span> <span class="n">data_length</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">task</span><span class="p">]</span> <span class="o">*</span> <span class="n">size</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
                         <span class="sa">f</span><span class="s2">&quot;&lt;U</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__tasks_string_length</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="p">),</span>
                     <span class="s2">&quot;label&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="n">_add_to_dataset</span><span class="p">(</span>
                     <span class="n">g</span><span class="p">,</span>
-                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_use</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">task</span><span class="p">)]</span> <span class="o">*</span> <span class="n">data_length</span><span class="p">)[</span>
-                        <span class="o">...</span><span class="p">,</span> <span class="kc">None</span>
-                    <span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_use</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">task</span><span class="p">)]</span> <span class="o">*</span> <span class="n">size</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+                        <span class="n">np</span><span class="o">.</span><span class="n">int8</span>
+                    <span class="p">),</span>
                     <span class="s2">&quot;class&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="n">_add_to_dataset</span><span class="p">(</span>
@@ -654,7 +698,7 @@
                                 <span class="p">]</span>
                             <span class="p">]</span>
                         <span class="p">),</span>
-                        <span class="n">data_length</span><span class="p">,</span>
+                        <span class="n">size</span><span class="p">,</span>
                         <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                     <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">),</span>
                     <span class="s2">&quot;one_hot_class&quot;</span><span class="p">,</span>
@@ -724,6 +768,7 @@
                     <span class="n">_add_to_dataset</span><span class="p">(</span><span class="n">training_group</span><span class="p">[</span><span class="s2">&quot;emg&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ground_truth_to_append</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                     <span class="n">_add_to_dataset</span><span class="p">(</span><span class="n">training_group</span><span class="p">[</span><span class="s2">&quot;ground_truth&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+                <span class="n">_add_to_dataset</span><span class="p">(</span><span class="n">training_group</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">label_to_append</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">)</span>
                 <span class="n">_add_to_dataset</span><span class="p">(</span>
                     <span class="n">training_group</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">class_to_append</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;class&quot;</span>
                 <span class="p">)</span>

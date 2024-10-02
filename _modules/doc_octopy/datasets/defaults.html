@@ -369,10 +369,10 @@
                 <span class="p">]</span>
             <span class="p">],</span>
             <span class="n">ground_truth_representations_to_filter_before_chunking</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Input&quot;</span><span class="p">],</span>
-            <span class="n">ground_truth_filter_after_pipeline_chunking</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">ground_truth_filter_pipeline_after_chunking</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">[</span><span class="n">ApplyFunctionFilter</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mean&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
             <span class="p">],</span>
-            <span class="n">ground_truth_representations_to_filter_after_pipeline_chunking</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Last&quot;</span><span class="p">],</span>
+            <span class="n">ground_truth_representations_to_filter_after_chunking</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Last&quot;</span><span class="p">],</span>
             <span class="n">augmentation_pipelines</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">[</span><span class="n">GaussianNoise</span><span class="p">(</span><span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span>
                 <span class="p">[</span><span class="n">MagnitudeWarping</span><span class="p">(</span><span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nr_of_grids</span><span class="o">=</span><span class="mi">5</span><span class="p">)],</span>
@@ -457,7 +457,7 @@
                     <span class="n">IndexDataFilter</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">63</span><span class="p">),)),</span>
                 <span class="p">]</span>
             <span class="p">],</span>
-            <span class="n">ground_truth_filter_after_pipeline_chunking</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">ground_truth_filter_pipeline_after_chunking</span><span class="o">=</span><span class="p">[</span>
                 <span class="p">[</span><span class="n">ApplyFunctionFilter</span><span class="p">(</span><span class="n">function</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">is_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
             <span class="p">],</span>
             <span class="n">augmentation_pipelines</span><span class="o">=</span><span class="p">[</span>
