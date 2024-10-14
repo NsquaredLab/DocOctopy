@@ -295,12 +295,12 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data_path</strong> (<em>Path</em>) – The path to the zarr file</p></li>
-<li><p><strong>seed</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – The seed for the random number generator, by default None</p></li>
-<li><p><strong>dataloader_parameters</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – The parameters for the DataLoader, by default None</p></li>
-<li><p><strong>shuffle_training_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to shuffle the training data, by default True</p></li>
+<li><p><strong>seed</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em><em>, </em><em>optional</em>) – The seed for the random number generator, by default None</p></li>
+<li><p><strong>dataloader_parameters</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>Any</em><em>]</em><em>, </em><em>optional</em>) – The parameters for the DataLoader, by default None</p></li>
+<li><p><strong>shuffle_training_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to shuffle the training data, by default True</p></li>
 <li><p><strong>input_type</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.1)"><em>numpy.dtype</em></a><em>, </em><em>optional</em>) – The type of the input data, by default np.float32</p></li>
 <li><p><strong>ground_truth_type</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v2.1)"><em>numpy.dtype</em></a><em>, </em><em>optional</em>) – The type of the ground_truth data, by default np.float32</p></li>
-<li><p><strong>ground_truth_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>)</p></li>
+<li><p><strong>ground_truth_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -322,7 +322,7 @@
 <dd><p>The seed for the random number generator, by default None</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)">int</a>], optional</p>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>], optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -333,7 +333,7 @@
 <dd><p>The parameters for the DataLoader, by default None</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)">str</a>, Any], optional</p>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, Any], optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -344,7 +344,7 @@
 <dd><p>Whether to shuffle the training data, by default True</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a>, optional</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a>, optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -377,7 +377,7 @@
 <dd><p>The name of the ground truth data, by default “ground_truth”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)">bool</a>, optional</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a>, optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -436,39 +436,39 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>emg_data_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><em>pathlib.Path</em></a>) – Path to the EMG data file. It should be a pickle file containing a dictionary with the keys being the task
+<li><p><strong>emg_data_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><em>pathlib.Path</em></a>) – Path to the EMG data file. It should be a pickle file containing a dictionary with the keys being the task
 number and the values being a numpy array of shape (n_channels, n_samples).</p></li>
-<li><p><strong>ground_truth_data_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><em>pathlib.Path</em></a>) – Path to the ground truth data file. It should be a pickle file containing a dictionary with the keys being the
+<li><p><strong>ground_truth_data_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><em>pathlib.Path</em></a>) – Path to the ground truth data file. It should be a pickle file containing a dictionary with the keys being the
 task number and the values being a numpy array of custom shape (…, n_samples). The custom shape can be
 anything, but the last dimension should be the same as the EMG data.</p></li>
-<li><p><strong>tasks_to_use</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>) – Sequence of strings containing the task numbers to use. If empty, all tasks will be used.</p></li>
-<li><p><strong>save_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.12)"><em>pathlib.Path</em></a>) – Path to save the dataset to. It should be a zarr file.</p></li>
-<li><p><strong>emg_filter_pipeline_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the EMG data before chunking. The filters should inherit from
+<li><p><strong>tasks_to_use</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>) – Sequence of strings containing the task numbers to use. If empty, all tasks will be used.</p></li>
+<li><p><strong>save_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.13)"><em>pathlib.Path</em></a>) – Path to save the dataset to. It should be a zarr file.</p></li>
+<li><p><strong>emg_filter_pipeline_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the EMG data before chunking. The filters should inherit from
 FilterBaseClass.</p></li>
-<li><p><strong>emg_filter_pipeline_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the EMG data after chunking. The filters should inherit from
+<li><p><strong>emg_filter_pipeline_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the EMG data after chunking. The filters should inherit from
 FilterBaseClass.</p></li>
-<li><p><strong>ground_truth_filter_pipeline_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the ground truth data before chunking. The filters should inherit from
+<li><p><strong>ground_truth_filter_pipeline_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the ground truth data before chunking. The filters should inherit from
 FilterBaseClass.</p></li>
-<li><p><strong>ground_truth_filter_pipeline_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the ground truth data after chunking. The filters should inherit from
+<li><p><strong>ground_truth_filter_pipeline_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.FilterBaseClass" title="doc_octopy.datasets.filters._template.FilterBaseClass"><em>FilterBaseClass</em></a><em>]</em><em>]</em>) – Sequence of filters to apply to the ground truth data after chunking. The filters should inherit from
 FilterBaseClass.</p></li>
-<li><p><strong>chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Size of the chunks to create from the data.</p></li>
-<li><p><strong>chunk_shift</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Shift between the chunks.</p></li>
-<li><p><strong>testing_split_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Ratio of the data to use for testing. The data will be split in the middle. The first half will be used for
+<li><p><strong>chunk_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Size of the chunks to create from the data.</p></li>
+<li><p><strong>chunk_shift</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Shift between the chunks.</p></li>
+<li><p><strong>testing_split_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Ratio of the data to use for testing. The data will be split in the middle. The first half will be used for
 training and the second half will be used for testing. If 0, no data will be used for testing.</p></li>
-<li><p><strong>validation_split_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>) – Ratio of the data to use for validation. The data will be split in the middle. The first half will be used for
+<li><p><strong>validation_split_ratio</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Ratio of the data to use for validation. The data will be split in the middle. The first half will be used for
 training and the second half will be used for validation. If 0, no data will be used for validation.</p></li>
-<li><p><strong>augmentation_pipelines</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.EMGAugmentation" title="doc_octopy.datasets.filters._template.EMGAugmentation"><em>EMGAugmentation</em></a><em>]</em><em>]</em>) – Sequence of augmentation_pipelines to apply to the training data. The augmentation_pipelines should inherit from
+<li><p><strong>augmentation_pipelines</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference internal" href="filters/template.html#doc_octopy.datasets.filters._template.EMGAugmentation" title="doc_octopy.datasets.filters._template.EMGAugmentation"><em>EMGAugmentation</em></a><em>]</em><em>]</em>) – Sequence of augmentation_pipelines to apply to the training data. The augmentation_pipelines should inherit from
 EMGAugmentation.</p></li>
-<li><p><strong>amount_of_chunks_to_augment_at_once</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><em>int</em></a>) – Amount of chunks to augment at once. This is done to speed up the process.</p></li>
-<li><p><strong>emg_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>ndarray</em></a><em>]</em>)</p></li>
-<li><p><strong>ground_truth_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.12)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>ndarray</em></a><em>]</em>)</p></li>
-<li><p><strong>ground_truth_data_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a>)</p></li>
-<li><p><strong>sampling_frequency</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><em>float</em></a>)</p></li>
-<li><p><strong>emg_representations_to_filter_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>)</p></li>
-<li><p><strong>emg_representations_to_filter_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>)</p></li>
-<li><p><strong>ground_truth_representations_to_filter_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>)</p></li>
-<li><p><strong>ground_truth_representations_to_filter_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.12)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>)</p></li>
-<li><p><strong>debug</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>)</p></li>
+<li><p><strong>amount_of_chunks_to_augment_at_once</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Amount of chunks to augment at once. This is done to speed up the process.</p></li>
+<li><p><strong>emg_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>ndarray</em></a><em>]</em>)</p></li>
+<li><p><strong>ground_truth_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.1)"><em>ndarray</em></a><em>]</em>)</p></li>
+<li><p><strong>ground_truth_data_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>)</p></li>
+<li><p><strong>sampling_frequency</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>)</p></li>
+<li><p><strong>emg_representations_to_filter_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>)</p></li>
+<li><p><strong>emg_representations_to_filter_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>)</p></li>
+<li><p><strong>ground_truth_representations_to_filter_before_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>)</p></li>
+<li><p><strong>ground_truth_representations_to_filter_after_chunking</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>)</p></li>
+<li><p><strong>debug</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -497,7 +497,7 @@ The EMG data should be of shape (320, samples).</p></li>
 This should be a dictionary with the keys as the tasks in tasks_to_use and the values as the ground truth data.
 The ground truth data should be of shape (21, 3, samples).</p></li>
 <li><p><strong>save_path</strong> (<em>Path</em>) – The path to save the dataset to. This should be a zarr file.</p></li>
-<li><p><strong>tasks_to_use</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.12)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em>)</p></li>
+<li><p><strong>tasks_to_use</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.13)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -527,8 +527,8 @@ The EMG data should be of shape (320, samples).</p></li>
 This should be a dictionary with the keys as the tasks in tasks_to_use and the values as the ground truth data.
 The ground truth data should be of shape (21, 3, samples).</p></li>
 <li><p><strong>save_path</strong> (<em>Path</em>) – The path to save the dataset to. This should be a zarr file.</p></li>
-<li><p><strong>tasks_to_use</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – The tasks to use. The default is EXPERIMENTS_TO_USE.</p></li>
-<li><p><strong>debug</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>)</p></li>
+<li><p><strong>tasks_to_use</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>]</em><em>, </em><em>optional</em>) – The tasks to use. The default is EXPERIMENTS_TO_USE.</p></li>
+<li><p><strong>debug</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a>)</p></li>
 </ul>
 </dd>
 </dl>
