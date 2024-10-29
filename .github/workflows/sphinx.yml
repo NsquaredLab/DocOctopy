@@ -21,7 +21,6 @@ jobs:
         sudo apt-get update
         python -m pip install --upgrade pip
         python -m pip install poetry
-        sed -i '25,26d' pyproject.toml
         rm poetry.lock
         poetry install --with docs
 
