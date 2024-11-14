@@ -182,7 +182,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -277,165 +277,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-doc_octopy.models.definitions.raul_net.offline.v6">
-<span id="v6"></span><h1>V6<a class="headerlink" href="#module-doc_octopy.models.definitions.raul_net.offline.v6" title="Link to this heading">¶</a></h1>
-<p>Model definition not used in any publication</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.ElectrodeWiseDropout">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">doc_octopy.models.definitions.raul_net.offline.v6.</span></span><span class="sig-name descname"><span class="pre">ElectrodeWiseDropout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/doc_octopy/models/definitions/raul_net/offline/v6.html#ElectrodeWiseDropout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.ElectrodeWiseDropout" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize internal Module state, shared by both nn.Module and ScriptModule.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>p</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>)</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.ElectrodeWiseDropout.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/doc_octopy/models/definitions/raul_net/offline/v6.html#ElectrodeWiseDropout.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.ElectrodeWiseDropout.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Define the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> (<a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.5)"><em>Tensor</em></a>)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.5)"><em>Tensor</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">doc_octopy.models.definitions.raul_net.offline.v6.</span></span><span class="sig-name descname"><span class="pre">RaulNetV6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_of_input_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_length__samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_of_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn_encoder_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mlp_encoder_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_search_kernel_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_search_kernel_stride</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/doc_octopy/models/definitions/raul_net/offline/v6.html#RaulNetV6"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6" title="Link to this definition">¶</a></dt>
-<dd><p>Model definition not used in any publication</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>learning_rate</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>)</p></li>
-<li><p><strong>nr_of_input_channels</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>)</p></li>
-<li><p><strong>input_length__samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>)</p></li>
-<li><p><strong>nr_of_outputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>)</p></li>
-<li><p><strong>cnn_encoder_channels</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em>)</p></li>
-<li><p><strong>mlp_encoder_channels</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><em>Tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>]</em>)</p></li>
-<li><p><strong>event_search_kernel_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>)</p></li>
-<li><p><strong>event_search_kernel_stride</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.learning_rate">
-<span class="sig-name descname"><span class="pre">learning_rate</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.learning_rate" title="Link to this definition">¶</a></dt>
-<dd><p>The learning rate.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.nr_of_input_channels">
-<span class="sig-name descname"><span class="pre">nr_of_input_channels</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.nr_of_input_channels" title="Link to this definition">¶</a></dt>
-<dd><p>The number of input channels.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.nr_of_outputs">
-<span class="sig-name descname"><span class="pre">nr_of_outputs</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.nr_of_outputs" title="Link to this definition">¶</a></dt>
-<dd><p>The number of outputs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.cnn_encoder_channels">
-<span class="sig-name descname"><span class="pre">cnn_encoder_channels</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.cnn_encoder_channels" title="Link to this definition">¶</a></dt>
-<dd><p>Tuple containing 3 integers defining the cnn encoder channels.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.mlp_encoder_channels">
-<span class="sig-name descname"><span class="pre">mlp_encoder_channels</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.mlp_encoder_channels" title="Link to this definition">¶</a></dt>
-<dd><p>Tuple containing 2 integers defining the mlp encoder channels.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.event_search_kernel_length">
-<span class="sig-name descname"><span class="pre">event_search_kernel_length</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.event_search_kernel_length" title="Link to this definition">¶</a></dt>
-<dd><p>Integer that sets the length of the kernels searching for action potentials.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.event_search_kernel_stride">
-<span class="sig-name descname"><span class="pre">event_search_kernel_stride</span></span><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.event_search_kernel_stride" title="Link to this definition">¶</a></dt>
-<dd><p>Integer that sets the stride of the kernels searching for action potentials.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/doc_octopy/models/definitions/raul_net/offline/v6.html#RaulNetV6.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Same as <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.forward" title="(in PyTorch v2.5)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">torch.nn.Module.forward</span></code></a>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>*args</strong> – Whatever you decide to pass into the forward method.</p></li>
-<li><p><strong>**kwargs</strong> – Keyword arguments are also possible.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Your model’s output</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.5)"><em>Tensor</em></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+          <section id="v6">
+<h1>V6<a class="headerlink" href="#v6" title="Link to this heading">¶</a></h1>
 </section>
 
         </article>
@@ -481,41 +330,8 @@ registered hooks while the latter silently ignores them.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">V6</a><ul>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.ElectrodeWiseDropout"><code class="docutils literal notranslate"><span class="pre">ElectrodeWiseDropout</span></code></a><ul>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.ElectrodeWiseDropout.forward"><code class="docutils literal notranslate"><span class="pre">ElectrodeWiseDropout.forward</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6"><code class="docutils literal notranslate"><span class="pre">RaulNetV6</span></code></a><ul>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.learning_rate"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.learning_rate</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.nr_of_input_channels"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.nr_of_input_channels</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.nr_of_outputs"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.nr_of_outputs</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.cnn_encoder_channels"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.cnn_encoder_channels</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.mlp_encoder_channels"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.mlp_encoder_channels</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.event_search_kernel_length"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.event_search_kernel_length</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.event_search_kernel_stride"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.event_search_kernel_stride</span></code></a></li>
-<li><a class="reference internal" href="#doc_octopy.models.definitions.raul_net.offline.v6.RaulNetV6.forward"><code class="docutils literal notranslate"><span class="pre">RaulNetV6.forward</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
